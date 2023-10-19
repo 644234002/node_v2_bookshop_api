@@ -12,7 +12,6 @@ router.route('/user/:userid/')
     
 router.route('/order/:orderid/')
     .get(verify,ordersController.getOrderById)
-    //.put(verify,ordersController.updateOrderById)
-    //.delete(verify,ordersController.deleteOrderById)
+
 
 module.exports = router;

@@ -59,8 +59,6 @@ const signin = async function (req, res) {
             let token = sign(user, secretkey);
 
             res.setHeader("Content-Type", "application/json");
-            /*             res.header("Access-Control-Allow-Origin", "*");
-            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); */
 
             return res
               .status(201)
@@ -68,6 +66,7 @@ const signin = async function (req, res) {
                 error: false,
                 message: "user sigin",
                 userId: userId,
+                user_role: results[0].role,
                 username: req.body.username,
                 accessToken: token,
               });

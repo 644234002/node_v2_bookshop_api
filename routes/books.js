@@ -6,13 +6,14 @@ const verify  = require('../middleware/jwtMiddleware').verify;
 router.route('/')
     .get(verify,booksController.getBooks)
     .post(verify,booksController.addBook)
-
+    
+    
 router.route('/:bookid/')
     .get(verify,booksController.getBookById)
     .put(verify,booksController.updateBookById)
     .delete(verify,booksController.deleteBookById)
 
 router.route('/cover/:bookid/')
-    .post(verify,booksController.uploadBookCover)
+    .get(booksController.getBookCover)
 
 module.exports = router;
